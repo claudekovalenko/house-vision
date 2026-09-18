@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Our Home</title>
+  <meta name="description" content="A living vision for the house we want to build together: a prayer room, a study, and a bedroom shaped by the Song of Solomon." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f1e7" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#151a24" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Our Home" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#rooms">Skip to rooms</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Our Home, back to top">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 10 8 30v24h48V30L32 10z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M32 26v18M24 34h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span>Our Home</span>
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#rooms">Rooms</a>
+      <a href="#bedroom">Nightstands</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#ideas">Ideas</a>
+    </nav>
+    <div class="header-actions">
+      <button id="install-btn" class="btn btn-ghost" type="button" hidden>Install</button>
+      <button id="theme-btn" class="icon-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">A vision for the house we'll build</p>
+      <h1>A home built around prayer, the Word, and each other.</h1>
+      <p class="lede">
+        This is a living blueprint, not a finished plan. It holds the rooms we keep coming back to,
+        the details that matter most, and the questions we still get to decide together.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#rooms">Walk the rooms</a>
+        <a class="btn btn-ghost" href="#ideas">Add an idea</a>
+      </div>
+    </section>
+
+    <section id="rooms" class="section">
+      <div class="section-head">
+        <h2>The rooms</h2>
+        <p>Every room carries a priority. Change it any time; it's saved on this device.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter rooms by priority">
+        <button class="chip is-active" type="button" data-filter="all">All</button>
+        <button class="chip chip-must" type="button" data-filter="must">Must have</button>
+        <button class="chip chip-love" type="button" data-filter="love">Would love</button>
+        <button class="chip chip-maybe" type="button" data-filter="maybe">Maybe</button>
+      </div>
+      <div id="room-list" class="room-grid"></div>
+    </section>
+
+    <section id="bedroom" class="section section-verses">
+      <div class="section-head">
+        <h2>The nightstands</h2>
+        <p>
+          Under the glass of each nightstand: the Song of Solomon's words about the one who sleeps
+          on the <em>other</em> side. His side carries the verses about her. Her side carries the verses about him.
+        </p>
+      </div>
+
+      <div class="nightstand-toggle" role="tablist" aria-label="Choose a side">
+        <button class="chip is-active" role="tab" aria-selected="true" aria-controls="his-side" id="tab-his" type="button">His side</button>
+        <button class="chip" role="tab" aria-selected="false" aria-controls="her-side" id="tab-her" type="button">Her side</button>
+      </div>
+
+      <div class="nightstands">
+        <article class="nightstand" id="his-side" role="tabpanel" aria-labelledby="tab-his">
+          <header>
+            <p class="eyebrow">His side</p>
+            <h3>About her</h3>
+            <p class="ref">Song of Solomon 4:1–7, 9–10</p>
+          </header>
+          <div class="glass">
+            <p><span class="vnum">1</span>Behold, you are beautiful, my love. Behold, you are beautiful. Your eyes are like doves behind your veil. Your hair is as a flock of goats, that descend from Mount Gilead.</p>
+            <p><span class="vnum">2</span>Your teeth are like a newly shorn flock, which have come up from the washing, where every one of them has twins. None is bereaved among them.</p>
+            <p><span class="vnum">3</span>Your lips are like scarlet thread. Your mouth is lovely. Your temples are like a piece of a pomegranate behind your veil.</p>
+            <p><span class="vnum">4</span>Your neck is like David's tower built for an armory, on which a thousand shields hang, all the shields of the mighty men.</p>
+            <p><span class="vnum">5</span>Your two breasts are like two fawns that are twins of a roe, which feed among the lilies.</p>
+            <p><span class="vnum">6</span>Until the day is cool, and the shadows flee away, I will go to the mountain of myrrh, to the hill of frankincense.</p>
+            <p><span class="vnum">7</span>You are all beautiful, my love. There is no spot in you.</p>
+            <p class="verse-gap"><span class="vnum">9</span>You have ravished my heart, my sister, my bride. You have ravished my heart with one of your eyes, with one chain of your neck.</p>
+            <p><span class="vnum">10</span>How beautiful is your love, my sister, my bride! How much better is your love than wine, the fragrance of your perfumes than all kinds of spices!</p>
+          </div>
+          <p class="seal">"My beloved is mine, and I am his." <span class="ref">2:16</span></p>
+        </article>
+
+        <article class="nightstand" id="her-side" role="tabpanel" aria-labelledby="tab-her" hidden>
+          <header>
+            <p class="eyebrow">Her side</p>
+            <h3>About him</h3>
+            <p class="ref">Song of Solomon 5:10–16</p>
+          </header>
+          <div class="glass">
+            <p><span class="vnum">10</span>My beloved is white and ruddy. The best among ten thousand.</p>
+            <p><span class="vnum">11</span>His head is like the purest gold. His hair is bushy, black as a raven.</p>
+            <p><span class="vnum">12</span>His eyes are like doves beside the water brooks, washed with milk, mounted like jewels.</p>
+            <p><span class="vnum">13</span>His cheeks are like a bed of spices with towers of perfumes. His lips are like lilies, dropping liquid myrrh.</p>
+            <p><span class="vnum">14</span>His hands are like rings of gold set with beryl. His body is like ivory work overlaid with sapphires.</p>
+            <p><span class="vnum">15</span>His legs are like pillars of marble set on sockets of fine gold. His appearance is like Lebanon, excellent as the cedars.</p>
+            <p><span class="vnum">16</span>His mouth is sweetness; yes, he is altogether lovely. This is my beloved, and this is my friend, daughters of Jerusalem.</p>
+          </div>
+          <p class="seal">"I am my beloved's, and my beloved is mine." <span class="ref">6:3</span></p>
+        </article>
+      </div>
+
+      <aside class="headboard">
+        <p class="eyebrow">Over the bed</p>
+        <blockquote>
+          Set me as a seal on your heart, as a seal on your arm; for love is strong as death.
+          Many waters can't quench love, neither can floods drown it.
+        </blockquote>
+        <p class="ref">Song of Solomon 8:6–7</p>
+      </aside>
+
+      <p class="footnote">Scripture quotations are from the World English Bible (public domain). Swap in the translation you want under the glass.</p>
+    </section>
+
+    <section id="decisions" class="section">
+      <div class="section-head">
+        <h2>Things to decide together</h2>
+        <p>Open questions from the rooms above. Pick an answer when you're ready; it's saved on this device.</p>
+      </div>
+      <ul id="decision-list" class="decision-list"></ul>
+    </section>
+
+    <section id="ideas" class="section">
+      <div class="section-head">
+        <h2>Ideas</h2>
+        <p>Random thoughts welcome. The sauna started as one.</p>
+      </div>
+      <form id="idea-form" class="idea-form" autocomplete="off">
+        <label class="field field-grow">
+          <span>Idea</span>
+          <input id="idea-text" name="text" type="text" required maxlength="200" placeholder="A window seat in the study…" />
+        </label>
+        <label class="field">
+          <span>Room</span>
+          <select id="idea-room" name="room"></select>
+        </label>
+        <label class="field">
+          <span>Priority</span>
+          <select id="idea-priority" name="priority">
+            <option value="must">Must have</option>
+            <option value="love" selected>Would love</option>
+            <option value="maybe">Maybe</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" type="submit">Add</button>
+      </form>
+      <ul id="idea-list" class="idea-list" aria-live="polite"></ul>
+      <p id="idea-empty" class="empty">No ideas yet. Add the first one above.</p>
+      <div class="idea-tools">
+        <button id="export-btn" class="btn btn-ghost" type="button">Export</button>
+        <label class="btn btn-ghost file-btn">
+          Import
+          <input id="import-input" type="file" accept="application/json" hidden />
+        </label>
+        <p class="hint">Export a file to share your notes with each other; import it on the other phone.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>"Unless Yahweh builds the house, they who build it labor in vain." <span class="ref">Psalm 127:1</span></p>
+    <p id="offline-status" class="hint" hidden>You're offline. Everything here still works.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
