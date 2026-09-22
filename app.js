@@ -90,6 +90,14 @@
       name: "The Prayer Room",
       tagline: "A place to pour everything out.",
       priority: "must",
+      photo: {
+        src: "images/prayer-room.jpg",
+        spec: "images/prayer-room-spec.jpg",
+        // Favour the upper band of the render, where the cross and the shelf sit.
+        position: "center 45%",
+        alt:
+          "Concept render of the prayer room: padded dark acoustic panels on every wall, a wooden cross lit from above, a low shelf holding an open Bible and a candle, a kneeler and floor cushions on carpet, a mini-split air conditioner high on the right wall, a speaker in the corner, and a solid-core door at the left.",
+      },
       summary:
         "Padded, soundproof, and finished to a high standard inside. A room you can go into and scream as loud as you want, and it hinders no one.",
       features: [
@@ -99,6 +107,7 @@
         ["Good speakers", "A proper system for worship, Scripture audio, or silence with no hum. Cabling hidden behind the panels."],
         ["Warm, dimmable light", "Low, indirect light. Bright enough to read, dim enough to weep."],
         ["Small and sacred", "A Bible, a journal, a kneeler, floor cushions. Nothing that doesn't belong."],
+        ["A modest prayer board", "A small board for verses, names you're carrying, and answered prayers. Encouragement, not clutter."],
       ],
       notes: [
         "Best spot is an interior room with no shared wall to a bedroom, or a corner of the basement. Fewer exterior walls means less sound to fight.",
@@ -250,6 +259,48 @@
   }
 
   /* ---------- Rooms ---------- */
+  // A room shows its render when it has one, and falls back to the line drawing.
+  function roomArt(room) {
+    if (!room.photo) return el("div", { class: "room-art", html: ART[room.id] || "" });
+    const img = el("img", {
+      src: room.photo.src,
+      alt: room.photo.alt,
+      loading: "lazy",
+      decoding: "async",
+      style: room.photo.position ? `object-position: ${room.photo.position}` : null,
+    });
+    return el(
+      "button",
+      {
+        type: "button",
+        class: "room-art room-art-photo",
+        "aria-label": `View the full ${room.name} render`,
+        onclick: () => openLightbox(room),
+      },
+      [img, el("span", { class: "art-badge", text: "Concept render" })]
+    );
+  }
+
+  function openLightbox(room) {
+    const dlg = $("#lightbox");
+    const img = $("#lightbox-img");
+    img.src = (room.photo && room.photo.spec) || room.photo.src;
+    img.alt = room.photo.alt;
+    $("#lightbox-cap").textContent = `${room.name} — concept render, not a photograph`;
+    if (typeof dlg.showModal === "function") dlg.showModal();
+    else dlg.setAttribute("open", "");
+  }
+
+  function initLightbox() {
+    const dlg = $("#lightbox");
+    const close = () => (typeof dlg.close === "function" ? dlg.close() : dlg.removeAttribute("open"));
+    $("#lightbox-close").addEventListener("click", close);
+    // Clicking the backdrop (the dialog element itself, outside the figure) closes it.
+    dlg.addEventListener("click", (e) => {
+      if (e.target === dlg) close();
+    });
+  }
+
   function renderRooms() {
     const list = $("#room-list");
     list.innerHTML = "";
@@ -273,7 +324,7 @@
         "article",
         { class: "room", "data-priority": priority, hidden: state.filter !== "all" && state.filter !== priority },
         [
-          el("div", { class: "room-art", html: ART[room.id] || "" }),
+          roomArt(room),
           el("div", { class: "room-body" }, [
             el("div", { class: "room-top" }, [
               el("h3", { text: room.name }),
@@ -543,6 +594,7 @@
 
   /* ---------- Boot ---------- */
   initTheme();
+  initLightbox();
   renderRooms();
   initFilters();
   initNightstands();

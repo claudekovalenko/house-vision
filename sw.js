@@ -1,5 +1,5 @@
 /* Our Home service worker: precache the app shell, serve it offline. */
-const VERSION = "v1";
+const VERSION = "v2";
 const SHELL_CACHE = `our-home-shell-${VERSION}`;
 const RUNTIME_CACHE = `our-home-runtime-${VERSION}`;
 
@@ -14,6 +14,8 @@ const SHELL = [
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
   "./icons/apple-touch-icon.png",
+  "./images/prayer-room.jpg",
+  "./images/prayer-room-spec.jpg",
 ];
 
 self.addEventListener("install", (event) => {

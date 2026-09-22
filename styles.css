@@ -312,10 +312,99 @@ main {
 }
 .room[hidden] { display: none; }
 .room-art {
-  height: 150px;
+  height: 180px;
   position: relative;
   background: var(--bg-sunken);
   overflow: hidden;
+}
+/* A room with a render swaps the line drawing for a tappable photo. */
+button.room-art-photo {
+  display: block;
+  width: 100%;
+  /* A render carries the card, so give it a widescreen frame instead of a thin strip. */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+}
+.room-art-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.art-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(10, 12, 18, 0.66);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #f3ead9;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  width: min(96vw, 1200px);
+  max-width: 96vw;
+  max-height: 92vh;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  overflow: visible;
+  color: var(--ink);
+}
+.lightbox::backdrop {
+  background: rgba(8, 10, 15, 0.82);
+  backdrop-filter: blur(4px);
+}
+.lightbox figure {
+  margin: 0;
+  position: relative;
+}
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: #0d1017;
+}
+.lightbox-cap {
+  margin: 10px 2px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #cfc7b7;
+}
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(10, 12, 18, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #f3ead9;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
 }
 .room-art svg {
   position: absolute;

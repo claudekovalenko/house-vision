@@ -39,7 +39,14 @@ The included GitHub Actions workflow (`.github/workflows/pages.yml`) publishes t
 | `sw.js` | Service worker: precaches the app shell for offline use |
 | `manifest.webmanifest` | Install metadata and icons |
 | `icons/` | App icons (`icon.svg` is the source; PNGs are rendered from it) |
+| `images/` | Room renders. `<room>.jpg` is the card art; `<room>-spec.jpg` is the annotated sheet shown full size |
 
 ## Updating the vision
 
 Room content and open questions live at the top of `app.js` in the `ROOMS` and `DECISIONS` arrays. Edit the text, bump `VERSION` in `sw.js` so installed copies pick up the change, and push.
+
+## Adding a room render
+
+Drop two files in `images/`: `<room>.jpg` for the card and `<room>-spec.jpg` for the annotated version that opens when you tap it. Then add a `photo` block to that room in `app.js` with `src`, `spec`, an `alt` description, and an optional `position` to steer the crop. Add both files to `SHELL` in `sw.js` and bump `VERSION` so installed copies pick them up.
+
+Renders are AI-generated concepts, so the app labels them as such. Keep that label if you swap in new ones.

@@ -71,6 +71,7 @@
         <button class="chip chip-maybe" type="button" data-filter="maybe">Maybe</button>
       </div>
       <div id="room-list" class="room-grid"></div>
+      <p class="footnote">Renders are AI-generated concepts from the notes on this page, not photographs or construction drawings. Tap one to see it full size.</p>
     </section>
 
     <section id="bedroom" class="section section-verses">
@@ -188,6 +189,14 @@
     <p>"Unless Yahweh builds the house, they who build it labor in vain." <span class="ref">Psalm 127:1</span></p>
     <p id="offline-status" class="hint" hidden>You're offline. Everything here still works.</p>
   </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Room render">
+    <figure>
+      <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close">&times;</button>
+      <img id="lightbox-img" alt="" />
+      <figcaption id="lightbox-cap" class="lightbox-cap"></figcaption>
+    </figure>
+  </dialog>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
