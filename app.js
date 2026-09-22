@@ -2,6 +2,29 @@
 (function () {
   "use strict";
 
+  /* Escape hatch: opening the app with ?reset clears the service worker and
+   * its caches, then reloads clean. Saved ideas and decisions are untouched.
+   * Use it if a bad cached copy ever leaves the app unable to start. */
+  if (/[?&]reset(=|&|$)/.test(location.search)) {
+    document.documentElement.style.visibility = "hidden";
+    (async () => {
+      try {
+        if ("serviceWorker" in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(regs.map((r) => r.unregister()));
+        }
+        if (window.caches) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((k) => caches.delete(k)));
+        }
+      } catch {
+        /* nothing more we can do; reload anyway */
+      }
+      location.replace(location.pathname);
+    })();
+    return;
+  }
+
   const STORAGE = {
     theme: "home.theme",
     priorities: "home.priorities",
@@ -592,15 +615,24 @@
     }
   }
 
-  /* ---------- Boot ---------- */
-  initTheme();
-  initLightbox();
-  renderRooms();
-  initFilters();
-  initNightstands();
-  renderDecisions();
-  initIdeas();
-  renderIdeas();
-  initInstall();
-  initOffline();
+  /* ---------- Boot ----------
+   * Each step is independent, so one failure cannot leave the whole page blank. */
+  for (const step of [
+    initTheme,
+    initLightbox,
+    renderRooms,
+    initFilters,
+    initNightstands,
+    renderDecisions,
+    initIdeas,
+    renderIdeas,
+    initInstall,
+    initOffline,
+  ]) {
+    try {
+      step();
+    } catch (err) {
+      console.error(`Our Home: ${step.name} failed`, err);
+    }
+  }
 })();

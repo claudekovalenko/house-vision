@@ -50,3 +50,9 @@ Room content and open questions live at the top of `app.js` in the `ROOMS` and `
 Drop two files in `images/`: `<room>.jpg` for the card and `<room>-spec.jpg` for the annotated version that opens when you tap it. Then add a `photo` block to that room in `app.js` with `src`, `spec`, an `alt` description, and an optional `position` to steer the crop. Add both files to `SHELL` in `sw.js` and bump `VERSION` so installed copies pick them up.
 
 Renders are AI-generated concepts, so the app labels them as such. Keep that label if you swap in new ones.
+
+## If the app won't open
+
+Open the site with `?reset` on the end of the URL, for example `https://<user>.github.io/house-vision/?reset`. That unregisters the service worker and clears its caches, then reloads clean. Saved ideas, decisions, and priorities are kept, because they live in local storage and are not touched.
+
+For an installed copy that still misbehaves, remove it from the home screen, open the URL in the browser once, and install it again.
