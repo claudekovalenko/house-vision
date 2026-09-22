@@ -770,3 +770,10 @@ button.room-art-photo {
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* The divine name, set the way printed Bibles set it. */
+.sc {
+  font-variant-caps: small-caps;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}

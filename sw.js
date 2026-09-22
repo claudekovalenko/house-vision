@@ -7,7 +7,7 @@
  *   - Only the small core shell can fail the install. Images and icons
  *     are best-effort, so a missing file cannot block activation.
  */
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL_CACHE = `our-home-shell-${VERSION}`;
 const RUNTIME_CACHE = `our-home-runtime-${VERSION}`;
 

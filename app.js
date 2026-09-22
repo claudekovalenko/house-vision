@@ -167,13 +167,14 @@
         "A bed with two nightstands. Under the glass top of each one, the Song of Solomon's words about the person on the other side. His side holds the verses about her. Her side holds the verses about him.",
       features: [
         ["Two glass-topped nightstands", "Solid wood with an inset glass top, so the words sit protected just beneath the surface."],
-        ["His side: about her", "Song of Solomon 4 and the verses that describe the bride."],
+        ["His side: about her", "Song of Solomon 4:1-7, 9-10, the verses that describe the bride."],
         ["Her side: about him", "Song of Solomon 5:10-16, the verses that describe the bridegroom."],
         ["The words themselves", "A real page, a hand-lettered sheet, a letterpress print, or text etched into the glass. Still deciding."],
         ["Over the bed", "Song of Solomon 8:6-7, set as a seal."],
       ],
       notes: [
         "See the full text of both sides in the Nightstands section below.",
+        "The translation is settled: ESV.",
         "If we take a page from a real Bible, it should be one we bought for this purpose, not the one we read from.",
         "Low-iron glass keeps the page from looking green. Worth the upgrade.",
       ],
@@ -197,7 +198,6 @@
   /* ---------- Decisions ---------- */
   const DECISIONS = [
     { id: "page", room: "bedroom", q: "How do the words go under the glass?", options: ["A real Bible page", "Hand-lettered", "Letterpress print", "Etched glass"] },
-    { id: "translation", room: "bedroom", q: "Which translation for the nightstands?", options: ["ESV", "NIV", "KJV", "NASB", "Other"] },
     { id: "location", room: "prayer", q: "Where does the prayer room go?", options: ["Interior room, main floor", "Basement", "Off the study", "Detached"] },
     { id: "vestibule", room: "prayer", q: "Add a vestibule (two doors) for true silence?", options: ["Yes", "No", "If budget allows"] },
     { id: "study-layout", room: "study", q: "How is her space arranged?", options: ["Second desk, same wall", "Reading nook, off to the side", "Facing desks", "L-shaped shared desk"] },
