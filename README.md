@@ -27,7 +27,7 @@ Then open the printed URL. Service workers need `localhost` or HTTPS, so opening
 
 ## Deploy
 
-The included GitHub Actions workflow (`.github/workflows/pages.yml`) publishes the repository root to GitHub Pages on every push to `main`. Turn on Pages in the repository settings with **Source: GitHub Actions** and the site will be available at `https://<user>.github.io/house-vision/`. All paths are relative, so it also works from any subfolder or a custom domain.
+The included GitHub Actions workflow (`.github/workflows/pages.yml`) publishes the repository root to GitHub Pages on every push to the default branch. Turn on Pages in the repository settings with **Source: GitHub Actions** and the site will be available at `https://<user>.github.io/house-vision/`. All paths are relative, so it also works from any subfolder or a custom domain.
 
 ## Files
 
