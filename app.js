@@ -205,8 +205,61 @@
     },
   ];
 
+  /* ---------- The standard ----------
+   * Cross-cutting build principles. These govern every room. */
+  const STANDARDS = [
+    {
+      title: "Take the whole Disneyland lesson, not half of it",
+      body:
+        "The park looks that good for two reasons, and only one is construction. It is built from materials chosen to survive millions of hands, and it is repainted and repaired on a schedule almost no building sees. Copy the first, and lay the house out so the second stays short.",
+    },
+    {
+      title: "Water is what actually destroys houses",
+      body:
+        "Deep roof overhangs, flashing at every penetration, gutters that discharge well clear of the foundation, and ground that slopes away on all four sides. Nothing else on this list matters if water gets in.",
+    },
+    {
+      title: "Pick materials that age instead of wearing out",
+      body:
+        "Stone, solid wood, real plaster, brass and bronze that take on a patina, a metal roof. These look better in twenty years. Painted exterior wood, hollow-core doors, and thin laminate only ever look worse.",
+    },
+    {
+      title: "Overbuild whatever hands touch",
+      body:
+        "Door hardware, stair treads, thresholds, the entry floor, the counters. These take a thousand times the wear of a wall, and they are what makes a house feel solid or cheap under your hand.",
+    },
+    {
+      title: "Make service easy or it will not happen",
+      body:
+        "Shutoffs labelled and within reach. An access panel at every valve. Filters you can change without a ladder. A real utility room rather than a crawlspace. Upkeep that takes ten minutes gets done. Upkeep that takes an afternoon does not.",
+    },
+    {
+      title: "One palette, held everywhere",
+      body:
+        "The same hinge, the same knob, the same trim profile, the same paint sheen, room to room. Consistency is most of what reads as well crafted, and deciding it once costs nothing.",
+    },
+    {
+      title: "Design what you see from where you stand",
+      body:
+        "Disney plans the sight line: what you see from the front door, from the end of the hall, from the bed, from the kitchen sink. A handful of views is the house anyone actually experiences.",
+    },
+    {
+      title: "Finish the parts nobody sees",
+      body:
+        "Inside the cabinets, the back of the closet, the garage wall. When the hidden parts are finished, the visible parts stay that way, because everyone treats the house the way it was built.",
+    },
+    {
+      title: "Budget for the rhythm, not just the build",
+      body:
+        "Even a well-built house needs a cadence: seal the stone, service the HVAC, touch up the paint, clear the gutters. A short list on a schedule is what keeps a house looking new. A long list that never happens is how houses age.",
+    },
+  ];
+
   /* ---------- Decisions ---------- */
   const DECISIONS = [
+    { id: "roof", room: "standard", q: "Roof: what goes on top?", options: ["Standing seam metal", "Architectural shingle", "Clay or concrete tile", "Slate"] },
+    { id: "exterior", room: "standard", q: "Exterior: what do we clad it in?", options: ["Brick or stone", "Fiber cement", "Stucco", "Wood siding"] },
+    { id: "floors", room: "standard", q: "Main floors: what do we walk on?", options: ["White oak, site-finished", "Engineered wood", "Tile or stone", "Polished concrete"] },
     { id: "page", room: "bedroom", q: "How do the words go under the glass?", options: ["A real Bible page", "Hand-lettered", "Letterpress print", "Etched glass"] },
     { id: "location", room: "prayer", q: "Where does the prayer room go?", options: ["Interior room, main floor", "Basement", "Off the study", "Detached"] },
     { id: "vestibule", room: "prayer", q: "Add a vestibule (two doors) for true silence?", options: ["Yes", "No", "If budget allows"] },
@@ -273,7 +326,9 @@
   }
   function roomName(id) {
     const r = ROOMS.find((x) => x.id === id);
-    return r ? r.name : "General";
+    if (r) return r.name;
+    if (id === "standard") return "The Standard";
+    return "General";
   }
 
   /* ---------- Theme ---------- */
@@ -289,6 +344,21 @@
       root.setAttribute("data-theme", next);
       save(STORAGE.theme, next);
     });
+  }
+
+  /* ---------- The standard ---------- */
+  function renderStandards() {
+    const list = $("#standard-list");
+    if (!list) return;
+    list.innerHTML = "";
+    for (const s of STANDARDS) {
+      list.append(
+        el("li", { class: "standard" }, [
+          el("h3", { text: s.title }),
+          el("p", { text: s.body }),
+        ])
+      );
+    }
   }
 
   /* ---------- Rooms ---------- */
@@ -485,6 +555,7 @@
   function initIdeas() {
     const roomSelect = $("#idea-room");
     roomSelect.append(el("option", { value: "general", text: "General" }));
+    roomSelect.append(el("option", { value: "standard", text: "The Standard" }));
     for (const r of ROOMS) roomSelect.append(el("option", { value: r.id, text: r.name }));
 
     $("#idea-form").addEventListener("submit", (e) => {
@@ -538,7 +609,10 @@
             state.ideas.push({
               id: String(idea.id),
               text: String(idea.text).slice(0, 200),
-              room: ROOMS.some((r) => r.id === idea.room) ? idea.room : "general",
+              room:
+                ROOMS.some((r) => r.id === idea.room) || idea.room === "standard"
+                  ? idea.room
+                  : "general",
               priority: PRIORITY_LABEL[idea.priority] ? idea.priority : "love",
               created: Number(idea.created) || Date.now(),
             });
@@ -630,6 +704,7 @@
   for (const step of [
     initTheme,
     initLightbox,
+    renderStandards,
     renderRooms,
     initFilters,
     initNightstands,

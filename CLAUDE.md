@@ -18,7 +18,8 @@ Verse text written from memory must be flagged as needing a proofread against a 
 
 ## Conventions
 
-- Room content and open questions live in the `ROOMS` and `DECISIONS` arrays at the top of `app.js`.
+- Room content, build principles, and open questions live in the `ROOMS`, `STANDARDS`, and `DECISIONS` arrays at the top of `app.js`.
+- A decision can belong to a room id or to `"standard"`. `roomName()` maps both; add any new group there and to the idea form's room select.
 - Bump `VERSION` in `sw.js` whenever a cached file changes, or installed copies keep serving the old one.
 - Only the five core shell files belong in `CORE` in `sw.js`. Images and icons go in `OPTIONAL`, so a missing file can never fail the install.
 - Room renders are AI-generated concepts. Always label them as such in the UI; never present one as a photograph or a construction drawing.

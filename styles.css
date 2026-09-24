@@ -777,3 +777,51 @@ button.room-art-photo {
   font-variant: small-caps;
   letter-spacing: 0.02em;
 }
+
+/* ---------- The standard ---------- */
+.standard-list {
+  list-style: none;
+  counter-reset: standard;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .standard-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.standard {
+  counter-increment: standard;
+  position: relative;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px 18px 58px;
+}
+.standard::before {
+  content: counter(standard, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 21px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.standard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+.standard p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Anchor links must land below the sticky header, not behind it. */
+.section,
+#top {
+  scroll-margin-top: 76px;
+}
