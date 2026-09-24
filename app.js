@@ -140,22 +140,32 @@
     },
     {
       id: "study",
-      name: "The Study",
-      tagline: "Where we get into the Word together.",
+      name: "The Study & Office",
+      tagline: "Two desks, one room, one door.",
       priority: "must",
+      photo: {
+        src: "images/study.jpg",
+        // Hold the middle band: the shared desk, the window, and her desk on the right.
+        position: "center 52%",
+        alt:
+          "Concept render of the study and office: a long shared wood desk in the middle of the room with an open Bible and a laptop on it, floor-to-ceiling built-in bookshelves with a rolling library ladder along the left wall, tall windows looking out over pines and water at sunset, an armchair and side table forming a reading nook, and a second desk with its own lamp and shelves along the right wall.",
+      },
       summary:
-        "A study that is mine, with a place for her off to the side, in the same room. Two desks, one door, so we can be in it together without being on top of each other.",
+        "A room we work in together. A long shared desk in the middle, her own desk off to the side with her own lamp and shelves, and a reading chair for when neither of us wants to be at a desk.",
       features: [
-        ["My desk", "Deep enough for an open Bible, a commentary, a notebook, and a laptop at once."],
-        ["Her nook", "A second desk or a reading chair and side table, set off to the side with its own lamp and shelves."],
-        ["Floor-to-ceiling shelves", "Built-ins on at least one wall. Bibles, commentaries, journals, and room to grow."],
-        ["A shared table", "One big surface for spreading things out when we study side by side."],
-        ["A wall for memorizing", "Corkboard or a framed chalkboard for verses we're working on together."],
-        ["Natural light and a door that closes", "Morning light if we can get it. Quiet when we need it."],
+        ["The shared desk", "One long surface in the middle of the room. Deep enough for an open Bible, a commentary, a notebook, and a laptop at once, with room to sit across from each other."],
+        ["Her desk", "Her own desk along the side wall, with her own lamp, her own drawers, and her own shelves. Hers, not a chair in my study."],
+        ["Floor-to-ceiling shelves", "Built-ins on at least one wall, tall enough to need a rolling ladder. Bibles, commentaries, journals, and room to grow."],
+        ["A reading nook", "An armchair and a side table for when the desk is the wrong place to sit."],
+        ["The window", "The best wall goes to glass. Light to work by, and something worth looking up at."],
+        ["A wall for memorizing", "Corkboard or a framed chalkboard for verses we are working on together."],
+        ["One door that closes", "Two of us inside, and the rest of the house on the other side of it."],
       ],
       notes: [
         "If the study and prayer room can sit next to each other, the prayer room becomes the natural place to go after reading.",
-        "Her space should be hers: her own drawers, her own lamp, her own shelf. Not just a chair in my study.",
+        "Two people working in one room means two people on calls in one room. Worth deciding early whether that is fine, or whether one of us moves out for meetings.",
+        "A big window beside a screen means glare and afternoon heat. Set the desks perpendicular to the glass rather than facing it, and budget for blinds.",
+        "Run power and data to both desks and to the reading nook before the walls close. Adding outlets behind finished built-ins is miserable.",
       ],
     },
     {
@@ -200,7 +210,7 @@
     { id: "page", room: "bedroom", q: "How do the words go under the glass?", options: ["A real Bible page", "Hand-lettered", "Letterpress print", "Etched glass"] },
     { id: "location", room: "prayer", q: "Where does the prayer room go?", options: ["Interior room, main floor", "Basement", "Off the study", "Detached"] },
     { id: "vestibule", room: "prayer", q: "Add a vestibule (two doors) for true silence?", options: ["Yes", "No", "If budget allows"] },
-    { id: "study-layout", room: "study", q: "How is her space arranged?", options: ["Second desk, same wall", "Reading nook, off to the side", "Facing desks", "L-shaped shared desk"] },
+    { id: "study-layout", room: "study", q: "How is her space arranged?", options: ["Shared desk plus her own", "Second desk, same wall", "Reading nook, off to the side", "Facing desks", "L-shaped shared desk"] },
     { id: "sauna", room: "sauna", q: "Sauna: in the first build?", options: ["Yes", "Later", "Skip it"] },
   ];
 

@@ -6,7 +6,7 @@ It's a single static page with no build step: open `index.html` on any web serve
 
 ## What's in it
 
-- **The rooms.** The prayer room (padded, soundproof, its own air conditioning, good speakers), the study (mine, with her space off to the side), the bedroom (Song of Solomon under the glass of each nightstand), and the sauna (a random thought, but a good one). Each room has a priority you can change; it's saved on the device.
+- **The rooms.** The prayer room (padded, soundproof, its own air conditioning, good speakers), the study and office (a shared desk, with her own desk off to the side), the bedroom (Song of Solomon under the glass of each nightstand), and the sauna (a random thought, but a good one). Each room has a priority you can change; it's saved on the device.
 - **The nightstands.** The full text for both sides: his side carries the verses about her, her side carries the verses about him, with Song of Solomon 8:6-7 over the bed. Quotations are ESV.
 - **Things to decide together.** Open questions from the rooms, answered with a tap.
 - **Ideas.** A running list of thoughts, each tied to a room and a priority. Export to a file and import on the other phone to share.
