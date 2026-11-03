@@ -104,6 +104,33 @@
           <path d="M300 88c4-6-4-10 0-16M312 84c4-6-4-10 0-16M324 88c4-6-4-10 0-16"/>
         </g>
       </svg>`,
+    rv: `
+      <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M0 130h400" stroke="var(--ink-mute)" stroke-width="2"/>
+        <g fill="none" stroke="var(--ink-mute)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M60 56h220v74H60z"/>
+          <path d="M280 76l50 20v34H280"/>
+          <path d="M280 76h30l20 20"/>
+          <path d="M300 76v20h30"/>
+        </g>
+        <g fill="var(--bg-elev)" stroke="var(--ink-mute)" stroke-width="1.5">
+          <rect x="76" y="68" width="36" height="28" rx="3"/>
+          <rect x="128" y="68" width="36" height="28" rx="3"/>
+          <rect x="180" y="68" width="36" height="28" rx="3"/>
+        </g>
+        <rect x="236" y="82" width="28" height="36" rx="3" fill="none" stroke="var(--ink-mute)" stroke-width="1.5"/>
+        <g fill="var(--gold-soft)" stroke="var(--ink-mute)" stroke-width="2">
+          <circle cx="110" cy="130" r="14"/>
+          <circle cx="250" cy="130" r="14"/>
+        </g>
+        <circle cx="110" cy="130" r="6" fill="var(--bg-elev)"/>
+        <circle cx="250" cy="130" r="6" fill="var(--bg-elev)"/>
+        <g fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M82 110h40M82 116h30"/>
+          <path d="M134 110h40M134 116h30"/>
+        </g>
+        <rect x="306" y="84" width="18" height="10" rx="2" fill="var(--gold-soft)" stroke="var(--ink-mute)" stroke-width="1"/>
+      </svg>`,
   };
 
   /* ---------- Rooms ---------- */
@@ -203,6 +230,27 @@
       ],
       notes: ["Could live in a garden shed later on. Doesn't need to be in the first build."],
     },
+    {
+      id: "rv",
+      name: "The Road Home",
+      tagline: "The same home, anywhere in America.",
+      priority: "maybe",
+      summary:
+        "A small RV finished to the same standard as the house. Not big, not flashy from outside, but beautiful and deliberate inside. A place to take a road trip across the country and still feel at home when you park for the night.",
+      features: [
+        ["Small on purpose", "A compact rig you can actually drive and park without stress. Big enough to sleep and cook; small enough to fit anywhere."],
+        ["Beautiful interior", "The same attention the house gets. Real wood, warm light, quality hardware. Not beige plastic and grey vinyl."],
+        ["A place for the Bible", "A small shelf or nook by the bed, lit well enough to read by. The road trip version of the nightstand."],
+        ["Good speakers", "Music and audiobooks on a long drive, worship in the evening. A clean system, not an afterthought."],
+        ["Simple kitchen", "A two-burner cooktop, a small sink, a good knife, and enough counter to make dinner without a restaurant."],
+        ["A view from every stop", "Big windows or a fold-out awning. The whole point is being somewhere new."],
+      ],
+      notes: [
+        "Very low on the list. Not a non-negotiable, not even close. A someday dream.",
+        "Could be a Class B van conversion or a small Class C. The deciding factor is whether it drives like a truck or drives like a building.",
+        "This can happen years after the house is finished. No rush.",
+      ],
+    },
   ];
 
   /* ---------- The standard ----------
@@ -265,6 +313,7 @@
     { id: "vestibule", room: "prayer", q: "Add a vestibule (two doors) for true silence?", options: ["Yes", "No", "If budget allows"] },
     { id: "study-layout", room: "study", q: "How is her space arranged?", options: ["Shared desk plus her own", "Second desk, same wall", "Reading nook, off to the side", "Facing desks", "L-shaped shared desk"] },
     { id: "sauna", room: "sauna", q: "Sauna: in the first build?", options: ["Yes", "Later", "Skip it"] },
+    { id: "rv-type", room: "rv", q: "What kind of rig?", options: ["Class B van conversion", "Small Class C", "Travel trailer", "Still dreaming"] },
   ];
 
   /* ---------- Storage helpers ---------- */
